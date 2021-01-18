@@ -1,0 +1,29 @@
+{% extends "pages/index.html" %} {%block content %} {% for item in home %}
+<div class="uk-inline-clip uk-transition-toggle">
+  <div
+    class="uk-card uk-card-default uk-overflow-hidden uk-border-rounded uk-text-center"
+  >
+    <div
+      class="uk-height-medium uk-background-cover uk-light uk-transition-scale-up uk-transition-opaque"
+      data-src="{{item.imgSrc}}"
+      data-uk-img
+      style="background-image: url({{item.imgSrc}});"
+    ></div>
+    <div
+      class="uk-transition-slide-bottom uk-transition-fade uk-overlay uk-overlay-primary uk-position-cover uk-visible@m"
+    >
+      <p class="uk-text-large uk-text-light uk-margin-remove">
+        {{item.cardHoverText}}
+      </p>
+    </div>
+  </div>
+  <p class="uk-text-muted uk-text-large uk-align-left uk-margin-remove">
+    {{item.cardTitle}}
+  </p>
+  <b class="uk-text-large uk-align-left uk-text-bolder">
+    {{item.cardSubTitle}}
+  </b>
+</div>
+{% else %}
+<li>This would display if the 'item' collection were empty</li>
+{% endfor %} {%endblock%}
